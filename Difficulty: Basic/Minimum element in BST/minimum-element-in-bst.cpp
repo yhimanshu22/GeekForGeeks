@@ -21,10 +21,13 @@ class Solution {
     int minValue(Node* root) {
         // Code here
         if(root == nullptr)return -1;
-        Node* curr = root;
-        while(curr->left != nullptr)curr = curr->left;
-        return curr->data;
         
+        while(root->left != nullptr){
+            root = root->left;
+            
+        }
         
+        return root->data;
+   
     }
 };
