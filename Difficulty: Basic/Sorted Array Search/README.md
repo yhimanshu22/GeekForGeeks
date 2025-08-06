@@ -8,4 +8,4 @@ Exlpanation: </strong>Since, 6 is present in the array at index 4 (0-based index
 Exlpanation: </strong>Since, 3 is not present in the array, output is false.</span></pre>
 <pre><span style="font-size: 14pt;"><strong>Input: </strong>arr[] = [2, 3, 5, 6], k = 1
 <strong>Output:</strong> false</span></pre>
-<p><span style="font-size: 14pt;"><strong>Constraints:</strong><br>1 &lt;= arr.size() &lt;= 10<sup>6</sup><br>1 &lt;= k &lt;= 10<sup>6</sup><br>1 &lt;= arr[i] &lt;= 10<sup>6</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Paytm</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Searching</code>&nbsp;<code>Binary Search</code>&nbsp;<code>Algorithms</code>&nbsp;
+<p><span style="font-size: 14pt;"><strong>Constraints:</strong><br>1 ≤ arr.size() ≤ 10<sup>6</sup><br>1 ≤ k ≤ 10<sup>6</sup><br>1 ≤ arr[i] ≤ 10<sup>6</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Paytm</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Searching</code>&nbsp;<code>Binary Search</code>&nbsp;<code>Algorithms</code>&nbsp;
