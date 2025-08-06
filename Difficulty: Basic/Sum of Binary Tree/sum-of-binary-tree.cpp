@@ -18,6 +18,9 @@ class Solution {
     int sumBT(Node* root) {
         // code here
         if(root == nullptr)return 0;
+        
+        if(root->left == nullptr && root->right ==  nullptr)return root->data;
+        
         return root->data + sumBT(root->left) + sumBT(root->right);
     }
 };
