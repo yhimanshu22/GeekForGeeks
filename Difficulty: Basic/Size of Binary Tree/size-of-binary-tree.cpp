@@ -19,7 +19,9 @@ class Solution {
     int getSize(Node* node) {
         // code here
         if(node == nullptr)return 0;
-        if(node->left == 0 and node->right == 0)return 1;
+        
+        if(node->left == nullptr && node->right ==  nullptr)return 1;
+        
         return 1 + getSize(node->left) + getSize(node->right);
     }
 };
