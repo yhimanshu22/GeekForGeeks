@@ -15,12 +15,8 @@ class Solution {
         // write code here
         if(root == nullptr)return 0;
         
-        if(root->left == 0 && root->right == 0){
-            return 1;
-        }
+        if(root->left ==  nullptr && root->right == nullptr)return 1;
         
         return countLeaves(root->left) + countLeaves(root->right);
-        
-        
     }
 };
