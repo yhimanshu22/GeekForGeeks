@@ -1,0 +1,9 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/check-if-a-number-is-power-of-another-number5442/1?page=7&difficulty=Basic&sortBy=submissions">Check for Power</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Given two positive integers <strong>x</strong> and<strong> y</strong>, determine if y is a power of<strong> </strong>x. If y is a power of x, return <strong>True</strong>. Otherwise, return <strong>False</strong>.</span></p>
+<p><strong><span style="font-size: 18px;">Examples:</span></strong></p>
+<pre><span style="font-size: 18px;"><strong><span style="font-size: 18px;">Input:</span> <span style="font-size: 14pt;">x</span></strong></span><span style="font-size: 18px;"> = 2, y = 8</span>
+<strong><span style="font-size: 18px;">Output:</span> </strong><span style="font-size: 14pt;">True</span> <br><strong><span style="font-size: 18px;">Explanation:</span> </strong><span style="font-size: 18px;">2<sup>3</sup> is equal to 8.</span></pre>
+<pre><strong><span style="font-size: 18px;">Input:</span><span style="font-size: 18px;"> <span style="font-size: 14pt;">x</span></span></strong><span style="font-size: 18px;"> = 1, y = 8</span>
+<strong><span style="font-size: 18px;">Output:</span> </strong><span style="font-size: 18px;">False</span>
+<strong><span style="font-size: 18px;">Explanation:</span> </strong><span style="font-size: 18px;">Any power of 1 is not </span><span style="font-size: 18px;">equal to 8.</span></pre>
+<p><span style="font-size: 18px;"><strong>Constraints:&nbsp;</strong><br>1 &lt;= x &lt;= 10<sup>3</sup><br>1 &lt;= y &lt;= 10<sup>8</sup></span></p>
+<p>&nbsp;</p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Zoho</code>&nbsp;<code>SAP Labs</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Mathematical</code>&nbsp;<code>Algorithms</code>&nbsp;
