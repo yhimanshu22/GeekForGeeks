@@ -4,42 +4,35 @@ class Solution {
         // Code here
         vector<vector<int>> adj(V);
         
-        for(auto it:edges){
-            int u = it[0];
-            int v = it[1];
+        for(auto &e:edges){
+            int u = e[0],v = e[1];
             
             adj[u].push_back(v);
-            adj[v].push_back(u);
+            adj[v].push_back(u); //undirected graph
         }
         
-        vector<int> vis(V,0);
+        vector<bool> visited(V,false);
         
-        for(int i=0;i<V;i++){
-            if(!vis[i]){
-                if(helper(i,adj,vis)) return true; 
-            }
-        }
-        
-        return false;
-        
-        
-    }
-    
-    bool helper(int start,vector<vector<int>>& adj , vector<int>& visited ){
-        
-        queue<pair<int,int>> q;
-        q.push({start,-1});
-        visited[start] = 1;
-        
-        while(!q.empty()){
-            auto [node,parent] = q.front();
-            q.pop();
-            
-            for(auto nbr : adj[node]){
-                if(!visited[nbr]){
-                    visited[nbr] = 1;
-                    q.push({nbr , node});
-                }else if(nbr != parent)return true;
+        //bfs traversal
+        for(int start=0;start < V;start++){
+            if(!visited[start]){
+                queue<pair<int,int>> q; // {node, parent}
+                q.push({start,-1});
+                 visited[start] = true; // mark visited here
+                while(!q.empty()){
+                    auto[node,parent] = q.front();
+                    q.pop();
+                    
+                    for(int neigh:adj[node]){
+                        if(!visited[neigh]){
+                            visited[neigh] = true;
+                            q.push({neigh, node});
+                        }else if(neigh != parent){
+                            return true;// already visited & not parent → cycle
+                        }
+                    }
+                }
+                
             }
         }
         return false;
