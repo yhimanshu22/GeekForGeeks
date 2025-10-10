@@ -1,36 +1,41 @@
 class Solution {
   public:
     bool isCyclic(int V, vector<vector<int>> &edges) {
-        vector<vector<int>> adj(V);
+        // code here
+        vector<int> adj[V];
+        vector<int> indegree(V,0);
         
-        for (auto &it : edges) {
-            int u = it[0];
-            int v = it[1];
+        for(auto &e : edges){
+            int u = e[0];
+            int v = e[1];
+            
             adj[u].push_back(v);
+            indegree[v]++;
         }
         
-        vector<int> vis(V, 0), pathVis(V, 0);
+        queue<int> q;
         
-        for (int i = 0; i < V; i++) {
-            if (!vis[i]) {
-                if (helper(i, adj, vis, pathVis)) return true;
+        for(int i=0;i<V;i++){
+            if(indegree[i] == 0){
+                q.push(i);
             }
         }
-        return false;
-    }
-    
-    bool helper(int node, vector<vector<int>>& adj, vector<int>& vis, vector<int>& pathVis) {
-        vis[node] = 1;
-        pathVis[node] = 1;
         
-        for (auto nbr : adj[node]) {
-            if (!vis[nbr]) {
-                if (helper(nbr, adj, vis, pathVis)) return true;
+        int cnt= 0;
+        
+        while(!q.empty()){
+            int node = q.front();q.pop();
+            
+            cnt++;
+            
+            for(auto neighbor:adj[node]){
+                indegree[neighbor]--;
+                if(indegree[neighbor] == 0){
+                    q.push(neighbor);
+                }
             }
-            else if (pathVis[nbr]) return true;
         }
         
-        pathVis[node] = 0; // backtrack
-        return false;
+        return cnt != V;
     }
 };
