@@ -3,28 +3,34 @@ class Solution {
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc,
                                   int newColor) {
         // Code here
-           int oldColor = image[sr][sc];
-        if (oldColor != newColor) {  // avoid infinite recursion
-            dfs(sr, sc, image, oldColor, newColor);
+        int old = image[sr][sc];
+        
+        if(old != newColor){
+            dfs(image,sr,sc,old,newColor);
         }
+        
         return image;
+        
     }
     
-     void dfs(int x, int y, vector<vector<int>>& image, int oldColor, int newColor){
+    void dfs(vector<vector<int>>& image,int sr,int sc,int old,int newColor){
+        
+       
         int n = image.size();
-        int m = image[0].size();
+        int m= image[0].size();
         
-        // boundary + same color check
-        if (x < 0 || y < 0 || x >= n || y >= m) return;
-        if (image[x][y] != oldColor) return;
+        if(sr<0 || sr >= n || sc < 0 || sc >= m)return ;
+        if(image[sr][sc]!= old)return;
         
-          // change color
-        image[x][y] = newColor;
+         image[sr][sc] = newColor;
         
-        // 4 directions
-        dfs(x+1, y, image, oldColor, newColor);
-        dfs(x-1, y, image, oldColor, newColor);
-        dfs(x, y+1, image, oldColor, newColor);
-        dfs(x, y-1, image, oldColor, newColor);
-     } 
+        
+        dfs(image,sr-1,sc,old,newColor);
+        dfs(image,sr+1,sc,old,newColor);
+        dfs(image,sr,sc-1,old,newColor);
+        dfs(image,sr,sc+1,old,newColor);
+        
+    }
+    
+    
 };
