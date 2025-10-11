@@ -7,9 +7,9 @@ class Solution {
         
         vis[x][y] = 1;
         
-          int dx[8] = {-1,-1,-1,0,0,1,1,1};
-        int dy[8] = {-1,0,1,-1,1,-1,0,1};
-        
+        int dx[8] = {-1, -1, -1,  0, 0, 1, 1, 1};
+        int dy[8] = {-1,  0,  1, -1, 1, -1, 0, 1};
+   
         for(int i=0;i<8;i++){
             int nx = x+dx[i];
             int ny = y+ dy[i];
