@@ -21,7 +21,7 @@ class Solution {
             }
         }
         
-          vector<vector<int>> visited(n, vector<int>(m, 0));
+        vector<vector<int>> visited(n, vector<int>(m, 0));
         queue<pair<int,int>> q;
         q.push({srcX, srcY});
         visited[srcX][srcY] = 1;
