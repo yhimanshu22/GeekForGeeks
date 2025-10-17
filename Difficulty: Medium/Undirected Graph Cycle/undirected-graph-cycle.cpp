@@ -1,36 +1,45 @@
 class Solution {
 public:
-    bool dfs(int node, int parent, vector<vector<int>>& adj, vector<int>& vis){
-        vis[node] = 1;
+    int findParent(int node, vector<int>& parent) {
+        if (parent[node] == node)
+            return node;
+        return parent[node] = findParent(parent[node], parent); // Path compression
+    }
 
-        for(auto &neighbor : adj[node]){
-            if(!vis[neighbor]){
-                if(dfs(neighbor, node, adj, vis))
-                    return true;
-            } else if(neighbor != parent){
-                return true;
-            }
+    void unionNodes(int u, int v, vector<int>& parent, vector<int>& rank) {
+        int pu = findParent(u, parent);
+        int pv = findParent(v, parent);
+
+        if (pu == pv) return;
+
+        // Union by rank
+        if (rank[pu] < rank[pv])
+            parent[pu] = pv;
+        else if (rank[pu] > rank[pv])
+            parent[pv] = pu;
+        else {
+            parent[pv] = pu;
+            rank[pu]++;
         }
-        return false;
     }
 
     bool isCycle(int V, vector<vector<int>>& edges) {
-        vector<vector<int>> adj(V); 
+        vector<int> parent(V), rank(V, 0);
 
-        for(auto &e : edges){
+        for (int i = 0; i < V; i++)
+            parent[i] = i;
+
+        for (auto &e : edges) {
             int u = e[0];
             int v = e[1];
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
 
-        vector<int> vis(V, 0);
+            int pu = findParent(u, parent);
+            int pv = findParent(v, parent);
 
-        for(int i = 0; i < V; i++){
-            if(!vis[i]){
-                if(dfs(i, -1, adj, vis))
-                    return true;
-            }
+            if (pu == pv) // same set => cycle
+                return true;
+
+            unionNodes(u, v, parent, rank);
         }
 
         return false;
