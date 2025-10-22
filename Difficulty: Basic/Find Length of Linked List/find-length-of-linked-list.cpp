@@ -15,13 +15,11 @@ class Solution {
   public:
     int getCount(Node* head) {
         // Code here
-        int cnt = 1;
-        Node* temp = head;
-        
-        while(temp->next != NULL){
-            cnt++;
-            temp = temp->next;
+        int len=1;
+        while(head->next){
+            head=head->next;
+            len++;
         }
-        return cnt;
+        return len;
     }
 };
